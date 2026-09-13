@@ -1,40 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# HDFC Life Advisor Portal
 
-## Getting Started
+A Next.js 14 web application built as an Advisor Portal for managing policies, viewing claims, filing new claims, and accessing a protected Advisor Desk.
 
-First, run the development server:
+The project demonstrates Next.js Pages Router concepts including Static Generation (SSG), Server-Side Rendering (SSR), Incremental Static Regeneration (ISR), Catch-All Routes, Optional Catch-All Routes, API Routes, Middleware, NextAuth.js authentication, Formik, and Yup validation.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Tech Stack
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Next.js 14
+- React
+- JavaScript
+- Tailwind CSS
+- NextAuth.js v4
+- Formik
+- Yup
+- Node.js
+- JSON seed data
+- Git & GitHub
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## 📋 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Policy Management
 
-## Learn More
+- View all available policies
+- Static Generation using `getStaticProps`
+- ISR with a 60-second revalidation period
+- Dynamic policy detail pages
+- Static paths using `getStaticPaths`
+- Dynamic category filtering
+- Catch-All Routes
 
-To learn more about Next.js, take a look at the following resources:
+### Claims Management
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+- View all claims
+- Server-Side Rendering using `getServerSideProps`
+- File a new claim
+- Formik form handling
+- Yup validation
+- Field-level validation errors
+- No network API required for claim submission
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Authentication
 
-## Deploy on Vercel
+- NextAuth.js v4
+- Credentials authentication
+- Google authentication
+- JWT-based session strategy
+- Protected Advisor Desk
+- Middleware-based route protection
+- Logout functionality
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Revalidation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+- Custom Next.js API route for on-demand ISR revalidation
+- Secret-based authorization
+
+---
+
+## 📁 Project Structure
+
+hdfc-life-advisor-portal/
+│
+├── data/
+│   ├── policies.json
+│   └── claims.json
+│
+├── pages/
+│   ├── api/
+│   │   ├── auth/
+│   │   │   └── [...nextauth].js
+│   │   └── revalidate.js
+│   │
+│   ├── auth/
+│   │   └── signin.js
+│   │
+│   ├── claims/
+│   │   ├── index.js
+│   │   └── new.js
+│   │
+│   ├── desk/
+│   │   └── index.js
+│   │
+│   ├── docs/
+│   │   └── [[...slug]].js
+│   │
+│   ├── policies/
+│   │   ├── category/
+│   │   │   └── [...slug].js
+│   │   ├── [id].js
+│   │   └── index.js
+│   │
+│   ├── _app.js
+│   ├── _document.js
+│   └── index.js
+│
+├── public/
+│
+├── styles/
+│   └── globals.css
+│
+├── middleware.js
+├── .env.local.example
+├── .gitignore
+├── package.json
+└── README.md
+
+## To run project
+# npm run dev
